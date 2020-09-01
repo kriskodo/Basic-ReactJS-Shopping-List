@@ -1,0 +1,338 @@
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.app {
+  width: 600px;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.app__title {
+  color: rgb(234,215,215);
+  font-size: 3em;
+  text-align:center;
+  margin: 40px 0px;
+  animation: fadeFromBottom 0.7s forwards;
+}
+
+input#newItem {
+  height: 44px;
+  padding: 0px 10px;
+  outline: none;
+  border: solid 1px #ddd;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: border .3s;
+}
+
+input#newItem:focus, input#newItem:hover {
+  border-color: #999;
+}
+
+input#newItem::placeholder {
+  font-style: italic;
+  color: #ddd;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 20px;
+  border-top: 1px solid #eee;
+  position: relative;
+}
+
+span.item__text input {
+  width: 450px;
+  height: 35px;
+  margin-top:25px;
+  position: absolute;
+  font-size: 0.9em;
+  padding-left: 5px;
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+
+.no__items {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 14px;
+  text-align: center; 
+  color: #999; 
+  font-style: italic;
+  font-size: 14px;
+}
+
+.app__body {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  animation: fadeFromTop 0.8s forwards;
+  animation-timing-function: ease-out;
+}
+
+button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #ddd;
+  cursor: pointer;
+  background: transparent;
+  margin: 0px 10px;
+  color: green;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.trash__icon {
+  border: none;
+  color: red;
+  font-size: 2em;
+  position:absolute;
+  right: 0;
+}
+
+.complete__btn { 
+  position: absolute;
+  left: 0;
+}
+
+.item__text {
+  margin-left: 30px;
+}
+
+.toggleCompleteAll { 
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #ddd;
+  cursor: pointer;
+  background: transparent;
+  margin: 0px 10px;
+  margin-top: 8px;
+  color: green;
+  float:left;
+  transition: all 0.2s ease-in-out;
+}
+
+.disabled {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #ddd;
+  background: transparent;
+  margin: 0px 10px;
+  margin-top: 5px;
+  float:left;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.not-allowed {
+  cursor: not-allowed;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  float: left;
+  margin-top: 3px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  color: #777;
+  font-style: italic;
+}
+
+.footer div:nth-child(1) {
+  font-size: 0.8em;
+  font-style: normal;
+}
+
+.footer__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.footer button {
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  color: #777;
+  transition: all 0.2s;
+  width: initial;
+  height: initial;
+  padding: 3px 5px;
+  font-weight: bold;
+  margin-right: 1px;
+}
+
+.footer button.clearBtn {
+  border-color: red;
+  background-color: red;
+  color: #fff;
+}
+
+.footer button.clearBtn__disabled {
+    pointer-events: none;
+    z-index: 0;
+    border: solid 1px #ddd;
+    color: #ddd;
+}
+
+.clearBtn__not-allowed {
+  cursor: not-allowed;
+  width: initial;
+  padding: 3px 5px;
+  z-index: 1; 
+}
+
+.footer button.active {
+  color: #fff;
+  background-color: #222;
+}
+
+button.toggleCompleteAll.active {
+  animation: bouncyAppearance 0.3s forwards ease-in-out;
+}
+
+ul {
+  border-bottom: 1px solid #eee;;
+}
+
+.svg__tick {
+  margin-top: 4px;
+}
+
+.svg__tick svg path {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: draw 1s linear forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+    transform-origin: center;
+  }
+
+  20% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+  
+  75% {
+    opacity: 0.5;
+  }
+
+  83% {
+    opacity: 0.7;
+  }
+
+  90% {
+    opacity: 0.9;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  
+  35% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  60% {
+    opacity: 0.4;
+  }
+  
+  75% {
+    opacity: 0.5;
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bouncyAppearance {
+  0% {
+    transform: translateX(0) scale(1.0, 1.0);   
+  }
+  
+  30% {
+   transform: translateX(5px) scale(1.05, 1.05);  
+  }
+
+  60% {
+   transform: translateX(-5px) scale(1.1, 1.1); 
+  }
+  
+  90% {
+   transform: translateX(-2px) scale(1.15, 1.15);
+  }
+
+  100% {
+    transform: translateX(0) scale(1.2, 1.2); 
+  }
+}
+
