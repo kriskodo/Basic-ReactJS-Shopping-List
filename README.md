@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Notes
+:zap: Pure ReactJS project.<br/>
+:zap: No SCSS.<br/>
+:zap: Local Storage to save new items.
+
 ## Available Scripts
 
 In the project directory, you can run:
